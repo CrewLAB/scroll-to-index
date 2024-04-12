@@ -396,7 +396,11 @@ mixin AutoScrollControllerMixin on ScrollController implements AutoScrollControl
     Future move(double offset),
   ) async {
     if (preferPosition != null) {
-      double targetOffset = _directionalOffsetToRevealInViewport(index, _positionToAlignment(preferPosition));
+      double targetOffset = _directionalOffsetToRevealInViewport(
+        index,
+        _positionToAlignment(preferPosition),
+        beginningPadding,
+      );
 
       // The content preferred position might be impossible to reach
       // for items close to the edges of the scroll content, e.g.
